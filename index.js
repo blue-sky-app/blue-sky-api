@@ -9,7 +9,7 @@ const PORT = 4000;
 
 //mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost/blueskydb', {
+mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });

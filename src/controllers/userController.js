@@ -29,8 +29,6 @@ export const getUserWithID = (req, res) => {
             res.send(err);
         }
         res.json(user);
-
-        
     });
 }
 
