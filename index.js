@@ -3,6 +3,7 @@ import userRoutes from './src/routes/userRoutes';
 import serviceCategoryRoutes from './src/routes/serviceCategoryRoutes';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
+import newsRoutes from './src/routes/newsRoutes';
 
 const app = express()
 const PORT = 4000;
@@ -24,8 +25,10 @@ app.use(cors({
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+// Routes
 userRoutes(app);
 serviceCategoryRoutes(app);
+newsRoutes(app);
 
 app.get('/', (req, res) =>
     res.send (`Node and express server running on port ${PORT}`)
