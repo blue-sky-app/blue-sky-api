@@ -11,7 +11,15 @@ const PORT = 4000;
 
 //mongoose connection
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb', {
+
+// dev
+// mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
+
+//prod
+mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
