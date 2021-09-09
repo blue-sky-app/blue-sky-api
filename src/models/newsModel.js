@@ -10,5 +10,9 @@ export const NewsSchema = new Schema({
     text: {
         type: String,
         required: `Enter Text`
+    },
+    customerType: {
+        type: String,
+        required: 'Enter a Customer Type'
     }
 });

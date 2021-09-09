@@ -4,6 +4,7 @@ import serviceCategoryRoutes from './src/routes/serviceCategoryRoutes';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 import newsRoutes from './src/routes/newsRoutes';
+import estimatesRoute from './src/routes/estimatesRoutes';
 
 const app = express()
 const PORT = 4000;
@@ -29,6 +30,7 @@ app.use(bodyParser.json());
 userRoutes(app);
 serviceCategoryRoutes(app);
 newsRoutes(app);
+estimatesRoute(app);
 
 app.get('/', (req, res) =>
     res.send (`Node and express server running on port ${PORT}`)
