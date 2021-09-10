@@ -13,16 +13,16 @@ const PORT = 4000;
 mongoose.Promise = global.Promise;
 
 // dev
-// mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
-
-//prod
-mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueSkydb?retryWrites=true&w=majority', {
+mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb', {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
+
+//prod
+// mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueSkydb?retryWrites=true&w=majority', {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// });
 
 // cors setup
 const cors = require('cors');
