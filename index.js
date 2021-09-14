@@ -7,7 +7,7 @@ import newsRoutes from "./src/routes/newsRoutes";
 import estimatesRoute from "./src/routes/estimatesRoutes";
 
 const app = express();
-// const PORT = 4000;
+const PORT = 4000;
 
 //mongoose connection
 mongoose.Promise = global.Promise;
@@ -49,6 +49,4 @@ app.get("/", (req, res) =>
   res.send(`Node and express server running on port ${PORT}`)
 );
 
-app.listen(process.env.PORT || 4000, () =>
-  console.log(`Your server is running on port ${PORT}`)
-);
+app.listen(PORT, () => console.log(`Your server is running on port ${PORT}`));
