@@ -20,7 +20,7 @@ mongoose.Promise = global.Promise;
 
 //prod
 mongoose.connect(
-  "mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueSkydb?retryWrites=true&w=majority",
+  "mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
