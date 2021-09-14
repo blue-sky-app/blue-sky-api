@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon ./index.js --exec babel-node -e js",
-    "build": "mkdir dist && babel src -s -d dist"
+    "start": "nodemon ./index.js --exec babel-node -e js"
   },
   "keywords": [],
   "author": "",
