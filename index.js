@@ -21,9 +21,15 @@ mongoose.connect(
 
 const uri = process.env.MONGODB_URI;
 
+// app.use(
+//   cors({
+//     Origin: "http://localhost:3000",
+//   })
+// );
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    Origin: "https://blueskyappv1.netlify.app/",
   })
 );
 
