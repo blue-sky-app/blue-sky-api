@@ -28,6 +28,8 @@ mongoose.connect(
   }
 );
 
+const uri = process.env.MONGODB_URI;
+
 app.use(
   cors({
     origin: "http://localhost:3000",
