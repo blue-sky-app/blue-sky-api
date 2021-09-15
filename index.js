@@ -38,7 +38,7 @@ newsRoutes(app);
 estimatesRoute(app);
 
 app.get("/", (req, res) =>
-  res.send(`Node and express server running on port ${PORT}`)
+  res.send(`Node and express server running on port 4000}`)
 );
 
 app.listen(process.env.PORT || 4000, () =>
