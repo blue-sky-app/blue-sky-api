@@ -1,10 +1,11 @@
 import express from "express";
-import userRoutes from "./src/routes/userRoutes";
-import serviceCategoryRoutes from "./src/routes/serviceCategoryRoutes";
+import userRoutes from "./src/routes/userRoutes.js";
+import serviceCategoryRoutes from "./src/routes/serviceCategoryRoutes.js";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
-import newsRoutes from "./src/routes/newsRoutes";
-import estimatesRoute from "./src/routes/estimatesRoutes";
+import newsRoutes from "./src/routes/newsRoutes.js";
+import estimatesRoute from "./src/routes/estimatesRoutes.js";
+import cors from "cors";
 
 const app = express();
 const PORT = 4000;
@@ -27,8 +28,6 @@ mongoose.connect(
   }
 );
 
-// cors setup
-const cors = require("cors");
 app.use(
   cors({
     origin: "http://localhost:3000",

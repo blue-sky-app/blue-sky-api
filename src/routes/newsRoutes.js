@@ -1,25 +1,29 @@
-import { addNewNews, 
-    getNews, 
-    getNewsWithID, 
-    updateNews, 
-    deleteNews } from '../controllers/newsController';
+import {
+  addNewNews,
+  getNews,
+  getNewsWithID,
+  updateNews,
+  deleteNews,
+} from "../controllers/newsController.js";
 
 const newsRoutes = (app) => {
-app.route('/news')
+  app
+    .route("/news")
     .get((req, res, next) => {
-        console.log(`Request from: ${req.originalUrl}`)
-        console.log(`Request type: ${req.method}`)
-        next();
+      console.log(`Request from: ${req.originalUrl}`);
+      console.log(`Request type: ${req.method}`);
+      next();
     }, getNews)
 
     .post(addNewNews);
 
-app.route('/News/:NewsID')
+  app
+    .route("/News/:NewsID")
     .get(getNewsWithID)
 
     .put(updateNews)
-    
+
     .delete(deleteNews);
-}
+};
 
 export default newsRoutes;

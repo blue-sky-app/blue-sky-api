@@ -1,25 +1,29 @@
-import { addNewEstimate, 
-    getEstimates, 
-    getEstimateWithID, 
-    updateEstimate, 
-    deleteEstimate } from '../controllers/estimatesController';
+import {
+  addNewEstimate,
+  getEstimates,
+  getEstimateWithID,
+  updateEstimate,
+  deleteEstimate,
+} from "../controllers/estimatesController.js";
 
 const estimateRoutes = (app) => {
-app.route('/estimates')
+  app
+    .route("/estimates")
     .get((req, res, next) => {
-        console.log(`Request from: ${req.originalUrl}`)
-        console.log(`Request type: ${req.method}`)
-        next();
+      console.log(`Request from: ${req.originalUrl}`);
+      console.log(`Request type: ${req.method}`);
+      next();
     }, getEstimates)
 
     .post(addNewEstimate);
 
-app.route('/estimate/:estimateID')
+  app
+    .route("/estimate/:estimateID")
     .get(getEstimateWithID)
 
     .put(updateEstimate)
-    
+
     .delete(deleteEstimate);
-}
+};
 
 export default estimateRoutes;
