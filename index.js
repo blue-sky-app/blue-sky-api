@@ -8,18 +8,9 @@ import estimatesRoute from "./src/routes/estimatesRoutes.js";
 import cors from "cors";
 
 const app = express();
-const PORT = 4000;
-
 //mongoose connection
 mongoose.Promise = global.Promise;
 
-// dev
-// mongoose.connect('mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb', {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// });
-
-//prod
 mongoose.connect(
   "mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb?retryWrites=true&w=majority",
   {
@@ -50,4 +41,6 @@ app.get("/", (req, res) =>
   res.send(`Node and express server running on port ${PORT}`)
 );
 
-app.listen(PORT, () => console.log(`Your server is running on port ${PORT}`));
+app.listen(process.env.PORT || 4000, () =>
+  console.log(`Server is running on port 4000`)
+);
