@@ -29,7 +29,8 @@ const uri = process.env.MONGODB_URI;
 
 app.use(
   cors({
-    Origin: "https://blueskyappv1.herokuapp.com",
+    // Origin: "https://blueskyappv1.herokuapp.com",
+    Origin: "https://blueskyappv2.netlify.app",
   })
 );
 
