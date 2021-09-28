@@ -51,6 +51,6 @@ export const deleteUser = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json({ message: "successfuly deleted user" });
+    res.json({ message: "successfully deleted user" });
   });
 };

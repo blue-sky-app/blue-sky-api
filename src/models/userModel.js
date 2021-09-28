@@ -5,26 +5,26 @@ const Schema = mongoose.Schema;
 export const UserSchema = new Schema({
     email: {
         type: String,
-        required: `Enter an email`
+        required: 'Enter an email'
     },
     firstName: {
         type: String,
-        required: `Enter a first name`
+        required: 'Enter a first name'
     },
     lastName: {
         type: String,
-        required: `Enter a last name`
+        required: 'Enter a last name'
     },
     password: {
         type: String,
-        required: `Enter a password`
+        required: 'Enter a password'
     },
     accountNumber: {
         type: Number,
     },
     accountType: {
         type: String,
-        required: `Enter an account type`
+        required: 'Enter an account type'
     },
     invoices: {
         type: Array,

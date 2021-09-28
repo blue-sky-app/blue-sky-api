@@ -5,11 +5,11 @@ const Schema = mongoose.Schema;
 export const NewsSchema = new Schema({
     headline: {
         type: String,
-        required: `Enter a Heading`
+        required: 'Enter a Heading'
     },
     text: {
         type: String,
-        required: `Enter Text`
+        required: 'Enter Text'
     },
     customerType: {
         type: String,

@@ -59,7 +59,7 @@ export const deleteServiceCategory = (req, res) => {
       if (err) {
         res.send(err);
       }
-      res.json({ message: "successfuly deleted serviceCategory" });
+      res.json({ message: "successfully deleted serviceCategory" });
     }
   );
 };

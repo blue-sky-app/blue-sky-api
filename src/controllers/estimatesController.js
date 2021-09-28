@@ -51,6 +51,6 @@ export const deleteEstimate = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json({ message: "successfuly deleted Estimate" });
+    res.json({ message: "successfully deleted estimate" });
   });
 };
