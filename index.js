@@ -8,29 +8,22 @@ import estimatesRoute from "./src/routes/estimatesRoutes.js";
 import cors from "cors";
 
 const app = express();
-//mongoose connection
-mongoose.Promise = global.Promise;
+const port = process.env.PORT || 4000;
+const dbUri = process.env.MONGODB_URI || "mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb?retryWrites=true&w=majority";
+const corsOrigins = process.env.CORS_ORIGINS || "/\./";
 
+mongoose.Promise = global.Promise;
 mongoose.connect(
-  "mongodb+srv://admin:rootadmin@cluster0.wt8ns.mongodb.net/blueskydb?retryWrites=true&w=majority",
+  dbUri,
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   }
 );
 
-const uri = process.env.MONGODB_URI;
-
-// app.use(
-//   cors({
-//     Origin: "http://localhost:3000",
-//   })
-// );
-
 app.use(
   cors({
-    // Origin: "https://blueskyappv1.herokuapp.com",
-    Origin: "https://blueskyappv2.netlify.app",
+    Origin: corsOrigins,
   })
 );
 
@@ -45,9 +38,9 @@ newsRoutes(app);
 estimatesRoute(app);
 
 app.get("/", (req, res) =>
-  res.send(`Node and express server running on port 4000}`)
+  res.send(`Node and express server running on port ${port}`)
 );
 
-app.listen(process.env.PORT || 4000, () =>
-  console.log(`Server is running on port 4000`)
+app.listen(port, () =>
+  console.log(`Server is running on port ${port}`)
 );
