@@ -7,6 +7,9 @@
     "start": "node ./index.js --exec babel-node -e js",
     "dev": "nodemon ./index.js --exec babel-node -e js"
   },
+  "engines": {
+    "node": "16.x"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",

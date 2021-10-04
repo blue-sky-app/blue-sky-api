@@ -5,25 +5,19 @@ import {
   updateNews,
   deleteNews,
 } from "../controllers/newsController.js";
+import { requireToken } from "../middleware/requireToken.js";
 
 const newsRoutes = (app) => {
   app
     .route("/news")
-    .get((req, res, next) => {
-      console.log(`Request from: ${req.originalUrl}`);
-      console.log(`Request type: ${req.method}`);
-      next();
-    }, getNews)
-
-    .post(addNewNews);
+    .get(requireToken, getNews)
+    .post(requireToken, addNewNews);
 
   app
     .route("/News/:NewsID")
-    .get(getNewsWithID)
-
-    .put(updateNews)
-
-    .delete(deleteNews);
+    .get(requireToken, getNewsWithID)
+    .put(requireToken, updateNews)
+    .delete(requireToken, deleteNews);
 };
 
 export default newsRoutes;

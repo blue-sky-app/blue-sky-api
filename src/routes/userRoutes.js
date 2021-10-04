@@ -11,21 +11,14 @@ import { validateToken, requireToken } from "../middleware/requireToken.js";
 const userRoutes = (app) => {
   app
     .route("/users")
-    .get((req, res, next) => {
-      console.log(`Request from: ${req.originalUrl}`);
-      console.log(`Request type: ${req.method}`);
-      next();
-    }, getUsers)
-
+    .get(getUsers)
     .post(addNewUser);
 
   app
     .route("/user/:userID")
-    .get(getUserWithID)
-
-    .put(updateUser)
-
-    .delete(deleteUser);
+    .get(requireToken, getUserWithID)
+    .put(requireToken, updateUser)
+    .delete(requireToken, deleteUser);
 
   app
     .route("/login")
