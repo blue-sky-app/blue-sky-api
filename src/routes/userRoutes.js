@@ -4,7 +4,9 @@ import {
   getUserWithID,
   updateUser,
   deleteUser,
+  login
 } from "../controllers/userController.js";
+import { validateToken, requireToken } from "../middleware/requireToken.js";
 
 const userRoutes = (app) => {
   app
@@ -24,6 +26,14 @@ const userRoutes = (app) => {
     .put(updateUser)
 
     .delete(deleteUser);
+
+  app
+    .route("/login")
+    .post(login);
+
+  app
+    .route("/validateToken")
+    .post(validateToken);
 };
 
 export default userRoutes;
