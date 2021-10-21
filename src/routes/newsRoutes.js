@@ -14,7 +14,7 @@ const newsRoutes = (app) => {
     .post(requireToken, addNewNews);
 
   app
-    .route("/News/:NewsID")
+    .route("/News/:newsID")
     .get(requireToken, getNewsWithID)
     .put(requireToken, updateNews)
     .delete(requireToken, deleteNews);
