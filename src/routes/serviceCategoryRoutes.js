@@ -7,6 +7,7 @@ import {
 } from "../controllers/serviceCategoryController.js";
 import { requireToken } from "../middleware/requireToken.js";
 
+// The below Routes are for Get/Post/Put/Delete for Service Categories Routes
 const serviceCategoryRoutes = (app) => {
   app
     .route("/servicecategories")

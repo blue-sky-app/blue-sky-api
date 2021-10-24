@@ -7,6 +7,7 @@ import {
 } from "../controllers/estimatesController.js";
 import { requireToken } from "../middleware/requireToken.js";
 
+// The below Routes are for Get/Post/Put/Delete for Estimates Routes
 const estimateRoutes = (app) => {
   app
     .route("/estimates")
