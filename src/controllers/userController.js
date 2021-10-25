@@ -3,8 +3,10 @@ import { UserSchema } from "../models/userModel.js";
 import jwt from "jsonwebtoken";
 import { JWT_SECRET } from "../config/jwtConfig.js";
 
+// Mongoose Model for using MongoDB
 const User = mongoose.model("user", UserSchema);
 
+// The controllers below are to Add New Users, Get Users, Get Users with an ID, Update Users, and Delete Users
 export const addNewUser = (req, res) => {
   let newUser = new User(req.body);
 

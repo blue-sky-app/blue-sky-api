@@ -4,15 +4,13 @@ import {
   getUserWithID,
   updateUser,
   deleteUser,
-  login
+  login,
 } from "../controllers/userController.js";
 import { validateToken, requireToken } from "../middleware/requireToken.js";
 
+// The below Routes are for Get/Post/Put/Delete for Users Routes
 const userRoutes = (app) => {
-  app
-    .route("/users")
-    .get(getUsers)
-    .post(addNewUser);
+  app.route("/users").get(getUsers).post(addNewUser);
 
   app
     .route("/user/:userID")
@@ -20,13 +18,9 @@ const userRoutes = (app) => {
     .put(requireToken, updateUser)
     .delete(requireToken, deleteUser);
 
-  app
-    .route("/login")
-    .post(login);
+  app.route("/login").post(login);
 
-  app
-    .route("/validateToken")
-    .post(validateToken);
+  app.route("/validateToken").post(validateToken);
 };
 
 export default userRoutes;
