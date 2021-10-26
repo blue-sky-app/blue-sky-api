@@ -18,6 +18,20 @@ export const addNewUser = (req, res) => {
   });
 };
 
+export const userExists = (req, res) => {
+  console.log(`Checking if ${req.query.email} exists`);
+  User.findOne({email: req.query.email}, (err, user) => {
+    if (err) {
+      res.status(500).send({userExists: false, err: err});
+    }
+    if (user) {
+      res.json({userExists: true});
+    } else {
+      res.json({userExists: false});
+    }
+  });
+};
+
 export const getUsers = (req, res) => {
   User.find({}, (err, user) => {
     if (err) {
