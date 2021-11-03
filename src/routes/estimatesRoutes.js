@@ -5,25 +5,20 @@ import {
   updateEstimate,
   deleteEstimate,
 } from "../controllers/estimatesController.js";
+import { requireToken } from "../middleware/requireToken.js";
 
+// The below Routes are for Get/Post/Put/Delete for Estimates Routes
 const estimateRoutes = (app) => {
   app
     .route("/estimates")
-    .get((req, res, next) => {
-      console.log(`Request from: ${req.originalUrl}`);
-      console.log(`Request type: ${req.method}`);
-      next();
-    }, getEstimates)
-
-    .post(addNewEstimate);
+    .get(requireToken, getEstimates)
+    .post(requireToken, addNewEstimate);
 
   app
     .route("/estimate/:estimateID")
-    .get(getEstimateWithID)
-
-    .put(updateEstimate)
-
-    .delete(deleteEstimate);
+    .get(requireToken, getEstimateWithID)
+    .put(requireToken, updateEstimate)
+    .delete(requireToken, deleteEstimate);
 };
 
 export default estimateRoutes;

@@ -1,11 +1,13 @@
 import mongoose from "mongoose";
 import { ServiceCategorySchema } from "../models/serviceCategoryModel.js";
 
+// Mongoose Model for using MongoDB
 const ServiceCategory = mongoose.model(
   "serviceCategory",
   ServiceCategorySchema
 );
 
+// The controllers below are to Add New Service Categories, Get Service Categories, Get Service Categories with an ID, Update Service Categories, and Delete Service Categories
 export const addNewServiceCategory = (req, res) => {
   let newServiceCategory = new ServiceCategory(req.body);
 
@@ -59,7 +61,7 @@ export const deleteServiceCategory = (req, res) => {
       if (err) {
         res.send(err);
       }
-      res.json({ message: "successfuly deleted serviceCategory" });
+      res.json({ message: "successfully deleted serviceCategory" });
     }
   );
 };

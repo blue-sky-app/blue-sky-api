@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 import { NewsSchema } from "../models/newsModel.js";
 
+// Mongoose Model for using MongoDB
 const News = mongoose.model("news", NewsSchema);
 
+// The controllers below are to Add New News, Get News, Get News with an ID, Update News, and Delete News
 export const addNewNews = (req, res) => {
   let newNews = new News(req.body);
 
@@ -51,6 +53,6 @@ export const deleteNews = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json({ message: "successfuly deleted news" });
+    res.json({ message: "successfully deleted news" });
   });
 };

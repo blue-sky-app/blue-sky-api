@@ -1,8 +1,10 @@
 import mongoose from "mongoose";
 import { EstimateSchema } from "../models/estimatesModel.js";
 
+// Mongoose Model for using MongoDB
 const Estimate = mongoose.model("estimate", EstimateSchema);
 
+// The controllers below are to Add New Estimates, Get Estimates, Get Estimates with an ID, Update Estimates, and Delete Estimates
 export const addNewEstimate = (req, res) => {
   let newEstimate = new Estimate(req.body);
 
@@ -51,6 +53,6 @@ export const deleteEstimate = (req, res) => {
     if (err) {
       res.send(err);
     }
-    res.json({ message: "successfuly deleted Estimate" });
+    res.json({ message: "successfully deleted estimate" });
   });
 };

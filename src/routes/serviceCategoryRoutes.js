@@ -5,25 +5,20 @@ import {
   updateServiceCategory,
   deleteServiceCategory,
 } from "../controllers/serviceCategoryController.js";
+import { requireToken } from "../middleware/requireToken.js";
 
+// The below Routes are for Get/Post/Put/Delete for Service Categories Routes
 const serviceCategoryRoutes = (app) => {
   app
     .route("/servicecategories")
-    .get((req, res, next) => {
-      console.log(`Request from: ${req.originalUrl}`);
-      console.log(`Request type: ${req.method}`);
-      next();
-    }, getServiceCategories)
-
-    .post(addNewServiceCategory);
+    .get(requireToken, getServiceCategories)
+    .post(requireToken, addNewServiceCategory);
 
   app
     .route("/serviceCategory/:serviceCategoryID")
-    .get(getServiceCategoryWithID)
-
-    .put(updateServiceCategory)
-
-    .delete(deleteServiceCategory);
+    .get(requireToken, getServiceCategoryWithID)
+    .put(requireToken, updateServiceCategory)
+    .delete(requireToken, deleteServiceCategory);
 };
 
 export default serviceCategoryRoutes;

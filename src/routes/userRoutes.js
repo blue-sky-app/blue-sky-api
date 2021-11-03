@@ -1,29 +1,34 @@
 import {
   addNewUser,
+  userExists,
   getUsers,
   getUserWithID,
   updateUser,
   deleteUser,
+  login,
 } from "../controllers/userController.js";
+import { validateToken, requireToken } from "../middleware/requireToken.js";
 
+// The below Routes are for Get/Post/Put/Delete for Users Routes
 const userRoutes = (app) => {
   app
     .route("/users")
-    .get((req, res, next) => {
-      console.log(`Request from: ${req.originalUrl}`);
-      console.log(`Request type: ${req.method}`);
-      next();
-    }, getUsers)
-
+    .get(requireToken, getUsers)
     .post(addNewUser);
 
   app
     .route("/user/:userID")
-    .get(getUserWithID)
+    .get(requireToken, getUserWithID)
+    .put(requireToken, updateUser)
+    .delete(requireToken, deleteUser);
 
-    .put(updateUser)
+  app
+    .route("/userExists")
+    .get(userExists);
 
-    .delete(deleteUser);
+  app.route("/login").post(login);
+
+  app.route("/validateToken").post(validateToken);
 };
 
 export default userRoutes;
